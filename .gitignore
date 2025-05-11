@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Model files and checkpoints
+*.pt
+*.pth
+*.bin
+*.safetensors
+checkpoints/
+model/
+logs/
+targeted_results/
+
+# Data files
+*.jsonl
+*.json
+*.csv
+*.txt
+data/cache/
+data/visualizations/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+fake_news_model/data/raw/
+fake_news_model/data/processed/
+fake_news_model/model/checkpoints/
+fake_news_model/model/logs/
+fake_news_model/model/visualizations/
+fake_news_model/model/evaluation/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+*.ipynb
+
+# BERT Models
+BERT_Transformer_Models/checkpoints/
+BERT_Transformer_Models/logs/
+BERT_Transformer_Models/models/
