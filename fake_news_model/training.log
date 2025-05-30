@@ -1,0 +1,43 @@
+2025-05-19 15:31:22,399 - __main__ - INFO - Using MPS (Metal Performance Shaders) for training
+2025-05-19 15:31:27,027 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-05-19 15:32:02,572 - __main__ - INFO - Model modified: Embeddings and lower layers frozen for transfer learning
+2025-05-19 15:32:02,573 - __main__ - INFO - Trainable parameters: 43,120,131 (34.59% of total)
+2025-05-19 15:32:02,854 - __main__ - INFO - Loading data from data/LLM_data/train.jsonl
+2025-05-19 15:32:03,418 - __main__ - INFO - Data loaded: 145449 examples
+2025-05-19 15:32:03,421 - __main__ - INFO - Class distribution: Counter({2: 80035, 1: 35639, 0: 29775})
+2025-05-19 15:32:03,422 - __main__ - INFO - Average claim length: 47.6 chars
+2025-05-19 15:32:03,422 - __main__ - INFO - Average evidence length: 83.5 chars
+2025-05-19 15:32:03,422 - __main__ - INFO - Examples with evidence: 100.0%
+2025-05-19 15:32:03,553 - __main__ - INFO - After oversampling, train set size: 168690
+2025-05-19 15:32:03,562 - __main__ - INFO - Oversampled class distribution: Counter({2: 64028, 1: 57022, 0: 47640})
+2025-05-19 15:32:03,630 - __main__ - INFO - Train set: 168690 examples
+2025-05-19 15:32:03,630 - __main__ - INFO - Validation set: 29090 examples
+2025-05-19 15:32:03,630 - __main__ - INFO - Data preparation took 0.78 seconds
+2025-05-19 15:32:55,921 - __main__ - INFO - Starting training...
+2025-05-19 19:12:09,414 - __main__ - INFO - Training completed in 219.22 minutes
+2025-05-19 19:12:09,419 - __main__ - INFO - Evaluating model...
+2025-05-19 19:44:04,927 - __main__ - INFO - Saving model and tokenizer...
+2025-05-19 19:44:06,796 - __main__ - WARNING - Could not save confusion matrix: Unknown format code 'd' for object of type 'float'
+2025-05-19 19:44:06,797 - __main__ - INFO - Training complete!
+2025-05-19 19:44:06,797 - __main__ - INFO - Best eval f1: 0.8979
+2025-05-20 00:36:02,509 - __main__ - INFO - Using MPS (Metal Performance Shaders) for training
+2025-05-20 00:36:03,626 - __main__ - INFO - Model modified: Embeddings and lower layers frozen for transfer learning
+2025-05-20 00:36:03,627 - __main__ - INFO - Trainable parameters: 43,120,131 (34.59% of total)
+2025-05-20 00:36:03,912 - __main__ - INFO - Loading data from data/LLM_data/train.jsonl
+2025-05-20 00:36:04,489 - __main__ - INFO - Data loaded: 145449 examples
+2025-05-20 00:36:04,493 - __main__ - INFO - Class distribution: Counter({2: 80035, 1: 35639, 0: 29775})
+2025-05-20 00:36:04,494 - __main__ - INFO - Average claim length: 47.6 chars
+2025-05-20 00:36:04,495 - __main__ - INFO - Average evidence length: 83.5 chars
+2025-05-20 00:36:04,495 - __main__ - INFO - Examples with evidence: 100.0%
+2025-05-20 00:36:04,629 - __main__ - INFO - After oversampling, train set size: 168690
+2025-05-20 00:36:04,639 - __main__ - INFO - Oversampled class distribution: Counter({2: 64028, 1: 57022, 0: 47640})
+2025-05-20 00:36:04,694 - __main__ - INFO - Train set: 168690 examples
+2025-05-20 00:36:04,694 - __main__ - INFO - Validation set: 29090 examples
+2025-05-20 00:36:04,694 - __main__ - INFO - Data preparation took 0.78 seconds
+2025-05-20 00:36:57,647 - __main__ - INFO - Starting training...
+2025-05-20 11:21:00,121 - __main__ - INFO - Training completed in 644.04 minutes
+2025-05-20 11:21:00,125 - __main__ - INFO - Evaluating model...
+2025-05-20 11:27:39,243 - __main__ - INFO - Saving model and tokenizer...
+2025-05-20 11:27:40,218 - __main__ - INFO - Confusion matrix saved to fake_news_model/improved_results/confusion_matrix.png
+2025-05-20 11:27:40,218 - __main__ - INFO - Training complete!
+2025-05-20 11:27:40,218 - __main__ - INFO - Best eval f1: 0.8979

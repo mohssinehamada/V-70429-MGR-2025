@@ -141,7 +141,7 @@ The training process generates:
 4. Push to the branch
 5. Create a Pull Request
 
-
+## Acknowledgments
 
 - Hugging Face for the transformers library
 - The DistilGPT2 model authors

@@ -28,6 +28,11 @@ targeted_results/
 data/cache/
 data/visualizations/
 
+# Cache directories
+cache/
+fake_news_model/cache/
+.cache/
+
 # IDE
 .idea/
 .vscode/
