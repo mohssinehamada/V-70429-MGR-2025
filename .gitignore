@@ -24,7 +24,9 @@ targeted_results/
 *.jsonl
 *.json
 *.csv
+# Exclude text files but allow requirements.txt
 *.txt
+!requirements.txt
 data/cache/
 data/visualizations/
 
