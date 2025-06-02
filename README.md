@@ -1,148 +1,245 @@
-# Fake News Detection with DistilGPT2 and LoRA
+# AI-Driven Early Detection of Misinformation in Digital Media
 
-A machine learning-based system for detecting fake news using DistilGPT2 and LoRA fine-tuning. This project is part of the MASTERS research work on fact-checking and misinformation detection.
+A comprehensive machine learning system for detecting fake news and misinformation using state-of-the-art transformer models. This project implements multiple approaches including DistilGPT2 with LoRA fine-tuning and RoBERTa-based classification for robust misinformation detection.
 
 ## Project Overview
 
-The project implements a sophisticated fake news detection system using state-of-the-art transformer models. It uses DistilGPT2 as the base model with LoRA (Low-Rank Adaptation) fine-tuning for efficient training.
+This project implements an advanced fake news detection system using multiple state-of-the-art approaches:
+
+1. **DistilGPT2 with LoRA**: Efficient fine-tuning for text generation-based classification
+2. **RoBERTa Classification**: Robust transformer-based sequence classification
+3. **Comprehensive Data Processing**: Advanced preprocessing and augmentation techniques
+4. **Extensive Evaluation**: Multi-metric evaluation with detailed visualizations
 
 ### Key Features
 
-* Implementation of DistilGPT2 with LoRA for fake news detection
-* Multiple data balancing techniques:
-  - Oversampling
-  - Undersampling
+* **Multiple Model Architectures**:
+  - DistilGPT2 with LoRA (Low-Rank Adaptation) fine-tuning
+  - RoBERTa for sequence classification with hate speech detection capabilities
+* **Advanced Data Balancing**:
+  - Oversampling techniques
   - Text augmentation
-  - Class weights
-* Comprehensive evaluation metrics
-* Training visualization and logging
-* Combined dataset approach for better performance
+  - Class weighting
+  - Stratified sampling
+* **Comprehensive Evaluation**:
+  - Confusion matrices with normalization
+  - Per-class performance metrics
+  - ROC-AUC analysis
+  - Error analysis and visualization
+* **Training Optimizations**:
+  - Gradient checkpointing
+  - Mixed precision training (when available)
+  - Early stopping with patience
+  - Learning rate scheduling
+* **Visualization Suite**:
+  - Training progress tracking
+  - Performance analysis charts
+  - Error distribution analysis
+  - Class-wise performance radar charts
 
 ## Project Structure
 
 ```
-fake_news_agent/
+AI-Driven-Early-Detection-of-Misinformation-in-Digital-Media/
 ├── fake_news_model/
 │   ├── data/
-│   │   ├── raw/                 # Raw dataset files
-│   │   └── processed/           # Processed and balanced datasets
-│   ├── model/
-│   │   ├── training/           # Training scripts
-│   │   ├── checkpoints/        # Model checkpoints
-│   │   ├── logs/              # Training logs
-│   │   ├── models/            # Saved models
-│   │   ├── visualizations/    # Training visualizations
-│   │   └── evaluation/        # Model evaluation results
-│   └── utils/                 # Utility functions
-└── requirements.txt           # Project dependencies
+│   │   ├── balance_data.py          # Data balancing utilities
+│   │   └── visualizations/          # Data analysis visualizations
+│   ├── improved_training.py         # Advanced RoBERTa training pipeline
+│   ├── targeted_tuning.py          # DistilGPT2 + LoRA training
+│   ├── enhanced_visualizations.py  # Comprehensive visualization suite
+│   ├── analyze_confusion_matrix.py # Detailed confusion matrix analysis
+│   ├── visualization_analysis.py   # Performance analysis tools
+│   ├── run_analysis.py             # Automated analysis runner
+│   ├── enhanced_visuals/           # Generated visualization outputs
+│   └── improved_results/           # Training results and models
+├── main.py                         # Main application entry point
+├── requirements.txt               # Project dependencies
+└── README.md                     # This file
 ```
 
 ## Dataset Structure
 
-The dataset is split into three parts:
-* Training set: 8,873 examples
-* Validation set: 986 examples
-* Test set: 2,465 examples
+The system works with datasets containing:
+* **Training set**: 8,873+ examples
+* **Validation set**: 986+ examples  
+* **Test set**: 2,465+ examples
 
-Label Distribution:
-* TRUE
-* FALSE
-* PARTIALLY TRUE
+**Label Categories**:
+* `TRUE`: Factually accurate claims
+* `FALSE`: Factually incorrect claims  
+* `PARTIALLY TRUE`: Claims with mixed accuracy
 
-Sources:
+**Data Sources**:
 * LIAR dataset
-* PolitiFact
+* PolitiFact fact-checking database
+* Custom curated datasets
 
-## Model Architecture
+## Model Architectures
 
-- Base model: DistilGPT2
-- Fine-tuning: LoRA (Low-Rank Adaptation)
-- Target modules: ["c_attn", "c_proj"]
-- LoRA configuration:
-  - r: 8
-  - alpha: 32
-  - dropout: 0.05
+### 1. RoBERTa Classification (Improved Training)
+- **Base Model**: `facebook/roberta-hate-speech-dynabench-r4-target`
+- **Architecture**: Sequence classification with 3-class output
+- **Features**:
+  - Transfer learning from hate speech detection
+  - Frozen embeddings and lower layers
+  - Gradient checkpointing for memory efficiency
+  - Label smoothing and class weighting
+  - Cosine learning rate scheduling
+
+### 2. DistilGPT2 + LoRA (Targeted Tuning)
+- **Base Model**: DistilGPT2
+- **Fine-tuning**: LoRA (Low-Rank Adaptation)
+- **Configuration**:
+  - r: 8, alpha: 32, dropout: 0.05
+  - Target modules: ["c_attn", "c_proj"]
+  - Parameter-efficient training
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
 ```bash
-git clone https://github.com/mohssinehamada/MASTERS_project.git
-cd MASTERS_project
+git clone https://github.com/mohssinehamada/AI-Driven-Early-Detection-of-Misinformation-in-Digital-Media.git
+cd AI-Driven-Early-Detection-of-Misinformation-in-Digital-Media
 ```
 
-2. Create and activate a virtual environment:
+2. **Create and activate virtual environment**:
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. **Install dependencies**:
 ```bash
 pip install -r requirements.txt
 ```
 
 ## Usage
 
-1. Prepare your data in the required format:
+### Quick Start
+```bash
+python main.py
+```
+
+### Advanced Training
+
+#### RoBERTa Improved Training:
+```bash
+python fake_news_model/improved_training.py
+```
+
+#### DistilGPT2 + LoRA Training:
+```bash
+python fake_news_model/targeted_tuning.py
+```
+
+#### Generate Comprehensive Analysis:
+```bash
+python fake_news_model/run_analysis.py
+```
+
+### Data Format
+Input data should be in JSONL format:
 ```json
 {
-    "instruction": "Your news text here",
-    "response": "TRUE/FALSE/PARTIALLY TRUE"
+    "claim": "Your news claim text here",
+    "evidence": ["Supporting evidence 1", "Supporting evidence 2"],
+    "label": "SUPPORTS/REFUTES/NOT ENOUGH INFO"
 }
 ```
 
-2. Place your data in the appropriate directories:
-   - Raw data: `fake_news_model/data/raw/`
-   - Processed data: `fake_news_model/data/processed/`
+## Evaluation Metrics
 
-3. Run the training script:
-```bash
-python fake_news_model/model/training/train.py
-```
+The system provides comprehensive evaluation including:
 
-## Evaluation
+- **Accuracy**: Overall classification accuracy
+- **Precision/Recall/F1**: Per-class and weighted averages
+- **ROC-AUC**: Multi-class area under curve
+- **Confusion Matrix**: Detailed error analysis
+- **Class-wise Performance**: Individual class metrics
+- **Error Distribution**: Analysis of misclassification patterns
 
-The model is evaluated using:
-- Confusion matrix
-- Classification report
-- Per-class metrics
-- Training loss visualization
+## Visualization Outputs
 
-## Output
+The system generates various visualizations:
 
-The training process generates:
-1. Model checkpoints
-2. Training logs
-3. Visualizations:
-   - Training loss plot
-   - Confusion matrix
-   - Per-class metrics
-4. Evaluation metrics in JSON format
+1. **Training Progress**: Loss curves and metric tracking
+2. **Confusion Matrices**: Both raw counts and normalized
+3. **Performance Radar**: Multi-metric class comparison
+4. **Error Analysis**: Misclassification pattern analysis
+5. **Class Distribution**: Dataset balance visualization
+
+## Performance Optimization
+
+### Hardware Support
+- **MPS (Metal Performance Shaders)**: Optimized for Apple Silicon
+- **CPU Fallback**: Automatic fallback for compatibility
+- **Memory Optimization**: Gradient checkpointing and efficient batching
+
+### Training Optimizations
+- **Mixed Precision**: FP16 training when supported
+- **Gradient Accumulation**: Effective larger batch sizes
+- **Early Stopping**: Prevents overfitting
+- **Learning Rate Scheduling**: Cosine annealing with restarts
 
 ## Dependencies
 
-- transformers==4.36.0
-- accelerate==0.25.0
-- peft==0.7.1
-- torch>=1.13.0
-- datasets
-- nltk
-- pandas
-- matplotlib
-- seaborn
-- scikit-learn
+Core requirements:
+```
+torch>=1.13.0
+transformers==4.36.0
+accelerate==0.25.0
+peft==0.7.1
+datasets
+scikit-learn
+pandas
+numpy
+matplotlib
+seaborn
+nltk
+```
+
+Optional:
+```
+wandb  # For experiment tracking
+```
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## Research Context
+
+This project is part of ongoing research in:
+- **Misinformation Detection**: Early identification of false information
+- **Transfer Learning**: Leveraging pre-trained models for fact-checking
+- **Multi-modal Analysis**: Combining text and metadata features
+- **Real-time Detection**: Scalable systems for social media monitoring
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
-- Hugging Face for the transformers library
-- The DistilGPT2 model authors
-- The LoRA paper authors
+- **Hugging Face**: For the transformers library and pre-trained models
+- **Facebook AI**: For the RoBERTa model architecture
+- **Microsoft**: For the LoRA adaptation technique
+- **Research Community**: For datasets and evaluation frameworks
+
+## Citation
+
+If you use this work in your research, please cite:
+
+```bibtex
+@misc{hamada2024ai_misinformation_detection,
+  title={AI-Driven Early Detection of Misinformation in Digital Media},
+  author={Mohssine Hamada},
+  year={2024},
+  url={https://github.com/mohssinehamada/AI-Driven-Early-Detection-of-Misinformation-in-Digital-Media}
+}
+```
