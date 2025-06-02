@@ -220,9 +220,7 @@ This project is part of ongoing research in:
 - **Multi-modal Analysis**: Combining text and metadata features
 - **Real-time Detection**: Scalable systems for social media monitoring
 
-## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
