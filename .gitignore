@@ -20,20 +20,44 @@ model/
 logs/
 targeted_results/
 
-# Data files
+# Large data files (exclude very large datasets but allow smaller processed files)
+# Raw datasets (usually too large for git)
+fake_news_model/data/raw/*/
+fake_news_model/data/raw/politifact/
+fake_news_model/data/raw/fever/
+fake_news_model/data/raw/liar/
+
+# Large processed files (over 10MB)
+fake_news_model/data/processed/train_augmented.json
+fake_news_model/data/processed/train_undersampled.json
+fake_news_model/data/processed/train_oversampled.json
+fake_news_model/data/processed/train_formatted.json
+fake_news_model/data/processed/validation_formatted.json
+fake_news_model/data/processed/*.csv
+
+# Large training data files
+data/LLM_data/train.jsonl
 *.jsonl
-*.json
-*.csv
-# Exclude text files but allow requirements.txt
-*.txt
+
+# Allow important configuration and small data files
+!fake_news_model/data/processed/class_weights.json
+!fake_news_model/data/test_claims.json
 !requirements.txt
-data/cache/
-data/visualizations/
+!fake_news_model/data/raw/README.md
+!data/benchmark_report_*.json
 
 # Cache directories
 cache/
 fake_news_model/cache/
 .cache/
+data/cache/
+
+# Logs and temporary files
+*.log
+*.txt
+!requirements.txt
+!README.md
+!fake_news_model/data/raw/README.md
 
 # IDE
 .idea/
@@ -50,13 +74,13 @@ fake_news_model/cache/
 ehthumbs.db
 Thumbs.db
 
-# Project specific
-fake_news_model/data/raw/
-fake_news_model/data/processed/
+# Project specific - exclude large result directories
 fake_news_model/model/checkpoints/
 fake_news_model/model/logs/
 fake_news_model/model/visualizations/
 fake_news_model/model/evaluation/
+fake_news_model/improved_results/
+fake_news_model/visualizations/
 
 # Jupyter
 .ipynb_checkpoints
